@@ -14,30 +14,87 @@ const photoFiles = fs.readdirSync(photosDir).filter(file => /\.(gif|jpg|jpeg|tif
 
 // 对图片文件进行排序
 photoFiles.sort((a, b) => b.localeCompare(a));
-
-// 引入 React 和 Lightbox 组件
-import React from 'react';
-import { SlideshowLightbox } from 'lightbox.js-react';
-import 'lightbox.js-react/dist/index.css';
 ---
 
 <Layout title={`Gallery | ${SITE.title}`}>
   <Header activeNav="gallery" />
   <Main pageTitle="Gallery" pageDesc="Browse our photo gallery ...">
     <div class="gallery-photos page">
-      <SlideshowLightbox className="container grid grid-cols-3 gap-2 mx-auto">
-        {photoFiles.map((file, index) => (
-          <img 
-            key={index}
-            className="w-full rounded" 
-            loading='lazy' 
-            decoding="async" 
-            src={`/imgs/${file}`} 
-            alt={file} 
-          />
-        ))}
-      </SlideshowLightbox>
+      {photoFiles.map(file => (
+        <div class="gallery-photo">
+          <img class="photo-img" loading='lazy' decoding="async" src={`/imgs/${file}`} alt={file} />
+          <span class="photo-title">{file.replace(/^[0-9 -]+(.*)[.].*/, "$1")}</span>
+          <span class="photo-time">{file.replace(/^([0-9-]+).*[.].*/, "$1")}</span>
+        </div>
+      ))}
     </div>
   </Main>
   <Footer />
 </Layout>
+
+<style>
+.gallery-photos { 
+  width: 100%; 
+  column-count: 4; 
+  column-gap: 10px; 
+}
+.gallery-photo { 
+  width: 100%; 
+  position: relative; 
+  overflow: hidden; 
+  break-inside: avoid; 
+  margin-bottom: 10px; 
+}
+.gallery-photo.visible { 
+  visibility: visible; 
+  animation: fadeIn 2s; 
+}
+.gallery-photo img { 
+  display: block; 
+  width: 100%; 
+  border-radius: 0; 
+  padding: 4px; 
+  animation: fadeIn 1s; 
+  cursor: pointer; 
+  transition: all .4s ease-in-out; 
+}
+.gallery-photo span.photo-title, .gallery-photo span.photo-time { 
+  background: rgba(0, 0, 0, 0.3); 
+  padding: 0px 8px; 
+  font-size: 0.9rem; 
+  color: #fff; 
+  display: none; 
+  animation: fadeIn 1s; 
+}
+.gallery-photo span.photo-title { 
+  position: absolute; 
+  bottom: 4px; 
+  left: 4px; 
+}
+.gallery-photo span.photo-time { 
+  position: absolute; 
+  top: 4px; 
+  left: 4px; 
+  font-size: 0.8rem; 
+}
+.gallery-photo:hover span.photo-title { 
+  display: block; 
+}
+.gallery-photo:hover img { 
+  transform: scale(1.1); 
+}
+@media screen and (max-width: 1280px) { 
+  .gallery-photos { column-count: 3; } 
+}
+@media screen and (max-width: 860px) { 
+  .gallery-photos { column-count: 2; } 
+}
+@media (max-width: 683px) { 
+  .gallery-photos { column-count: 1; } 
+  .photo-time { display: none; } 
+}
+@keyframes fadeIn { 
+  0% { opacity: 0; } 
+  100% { opacity: 1; } 
+}
+</style>
