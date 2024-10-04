@@ -14,7 +14,7 @@ const imageFiles = import.meta.glob('/public/imgs/*.{jpg,jpeg,png,gif,webp}', { 
 const publicPhotos = Object.keys(imageFiles).map((filePath) => {
   const fileName = filePath.split('/').pop(); // 获取文件名
   return {
-    src: `./public/imgs//${fileName}`, // 直接使用文件名
+    src: `./public/imgs/${fileName}`, // 直接使用文件名
     width: 800, // 假设默认宽度
     height: 600, // 假设默认高度
     title: fileName,
