@@ -1,54 +1,119 @@
----
-import { getCollection } from "astro:content";
+import { readdirSync } from 'fs';
+import { join } from 'path';
 import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
-// 图片链接数组
-const photoLinks = [
-  "https://r2.xiaoayu.eu.org/2024/10/925fa31c2abf1e95f9434b12a763e22f.webp",
-  "https://r2.xiaoayu.eu.org/2024/10/2f54b82ca6f83af9f00e8e99dd705d0d.webp",
-  "https://r2.xiaoayu.eu.org/2024/10/01cd76976e42b699fadd7dbb6f963eb3.webp",
-  "https://r2.xiaoayu.eu.org/2024/10/a50d2c7c59a58b771b415962164d5e2c.webp",
-  // 添加更多图片链接
-];
----
+// 读取图片文件夹中的图片文件
+const imageFolder = './static/photos';
+const photos = readdirSync(imageFolder).filter(file => file.endsWith('.jpg') || file.endsWith('.webp'));
 
 <Layout title={`Gallery | ${SITE.title}`}>
   <Header activeNav="gallery" />
   <Main pageTitle="Gallery" pageDesc="Browse our photo gallery ...">
     <div class="gallery-photos page">
-      {photoLinks.map((link, index) => (
-        <div class="gallery-photo" data-index={index}>
-          <img class="photo-img" loading='lazy' decoding="async" src={link} alt={`Photo ${index + 1}`} />
-          <span class="photo-title">Photo {index + 1}</span>
-          <span class="photo-time">2023-10-01</span>
-        </div>
-      ))}
+      {photos.map((photo, index) => {
+        const photoName = photo.split('.')[0]; // 获取图片名称
+        return (
+          <div class="gallery-photo" data-index={index} key={index}>
+            <img class="photo-img" loading='lazy' decoding="async" src={`/images1/${photo}`} alt={photoName} />
+            <span class="photo-title">{photoName}</span>
+            <span class="photo-time">2024-10-03</span> {/* 假设所有图片时间相同，你可以调整逻辑从文件或其他地方读取实际时间 */}
+          </div>
+        );
+      })}
     </div>
   </Main>
   <Footer />
 </Layout>
 
 <style>
-.gallery-photos { width: 100%; display: flex; flex-wrap: wrap; }
-.gallery-photo { width: 24.9%; position: relative; overflow: hidden; margin: 5px; }
-.gallery-photo img { display: block; width: 100%; border-radius: 0; padding: 4px; cursor: pointer; transition: all .4s ease-in-out; }
-.gallery-photo span.photo-title, .gallery-photo span.photo-time { background: rgba(0, 0, 0, 0.3); padding: 0px 8px; font-size: 0.9rem; color: #fff; display: none; }
-.gallery-photo span.photo-title { position: absolute; bottom: 4px; left: 4px; }
-.gallery-photo span.photo-time { position: absolute; top: 4px; left: 4px; font-size: 0.8rem; }
-.gallery-photo:hover span.photo-title { display: block; }
-.gallery-photo:hover img { transform: scale(1.1); }
-@media screen and (max-width: 1280px) { .gallery-photo { width: 33.3%; } }
-@media screen and (max-width: 860px) { .gallery-photo { width: 49.9%; } }
-@media (max-width: 683px) { .photo-time { display: none; } }
+.gallery-photos {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.gallery-photo {
+  width: calc(25% - 10px);
+  position: relative;
+  overflow: hidden;
+  margin: 5px;
+  flex-grow: 1;
+  flex-basis: calc(25% - 10px);
+}
+.gallery-photo img {
+  display: block;
+  width: 100%;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.gallery-photo span.photo-title, .gallery-photo span.photo-time {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  font-size: 0.9rem;
+  color: #fff;
+  display: none;
+}
+.gallery-photo span.photo-title {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+.gallery-photo span.photo-time {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.8rem;
+}
+.gallery-photo:hover span.photo-title {
+  display: block;
+}
+.gallery-photo:hover img {
+  transform: scale(1.1);
+}
+@media screen and (max-width: 1280px) {
+  .gallery-photo {
+    width: calc(33.3% - 10px);
+  }
+}
+@media screen and (max-width: 860px) {
+  .gallery-photo {
+    width: calc(50% - 10px);
+  }
+}
+@media screen and (max-width: 683px) {
+  .gallery-photo {
+    width: calc(100% - 10px);
+  }
+  .photo-time {
+    display: none;
+  }
+}
 
 /* Lightbox styles */
-.lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000; }
-.lightbox img { max-width: 80%; max-height: 80%; }
-.lightbox.active { display: flex; }
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+}
+.lightbox.active {
+  display: flex;
+}
 </style>
 
 <script>
@@ -60,8 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   galleryPhotos.addEventListener('click', (event) => {
     if (event.target.classList.contains('photo-img')) {
-      const index = event.target.parentElement.getAttribute('data-index');
-      const imgSrc = photoLinks[index];
+      const imgSrc = event.target.src;
       const lightboxImg = document.createElement('img');
       lightboxImg.src = imgSrc;
       lightbox.innerHTML = '';
@@ -75,3 +139,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
