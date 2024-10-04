@@ -31,7 +31,7 @@ const initialPhotos = sortedPosts.map(({ data, slug }) => ({
 const publicImgsDir = path.join(process.cwd(), "public", "imgs");
 const imageFiles = fs.readdirSync(publicImgsDir).filter((file) => file.match(/\.(jpg|jpeg|png|gif)$/i));
 const publicPhotos = imageFiles.map((file) => ({
-  src: `/imgs/${file}`,
+  src: `./public/imgs/${file}`,
   width: 800, // Assuming a default width
   height: 600, // Assuming a default height
   title: file,
