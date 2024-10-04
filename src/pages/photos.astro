@@ -1,0 +1,66 @@
+---
+import { getCollection } from "astro:content";
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { MasonryPhotoAlbum } from "react-photo-album";
+import "react-photo-album/masonry.css";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import * as React from "react";
+import fs from "fs";
+import path from "path";
+
+// Retrieve all published articles
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+const sortedPosts = getSortedPosts(posts);
+
+// List of photos to display in the album
+const initialPhotos = sortedPosts.map(({ data, slug }) => ({
+  src: data.image, // Assuming each post has an image field
+  width: data.imageWidth, // Assuming each post has an imageWidth field
+  height: data.imageHeight, // Assuming each post has an imageHeight field
+  title: data.title,
+  description: data.description,
+}));
+
+// Read images from public/imgs directory
+const publicImgsDir = path.join(process.cwd(), "public", "imgs");
+const imageFiles = fs.readdirSync(publicImgsDir).filter((file) => file.match(/\.(jpg|jpeg|png|gif)$/i));
+const publicPhotos = imageFiles.map((file) => ({
+  src: `/imgs/${file}`,
+  width: 800, // Assuming a default width
+  height: 600, // Assuming a default height
+  title: file,
+  description: `Image: ${file}`,
+}));
+
+const [photos, setPhotos] = React.useState([...initialPhotos, ...publicPhotos]);
+const [open, setOpen] = React.useState(false);
+const [currentSlide, setCurrentSlide] = React.useState(0);
+
+const handlePhotoClick = (index) => {
+  setCurrentSlide(index);
+  setOpen(true);
+};
+
+---
+
+<Layout title={`Photo Album | ${SITE.title}`}>
+  <Header activeNav="photo-album" />
+  <Main pageTitle="Photo Album" pageDesc="View our photo album ...">
+    <MasonryPhotoAlbum
+      photos={photos}
+      onClick={(index) => handlePhotoClick(index)}
+    />
+    <Lightbox
+      open={open}
+      close={() => setOpen(false)}
+      slides={photos.map((photo) => ({ src: photo.src }))}
+      index={currentSlide}
+    />
+  </Main>
+  <Footer />
+</Layout>
