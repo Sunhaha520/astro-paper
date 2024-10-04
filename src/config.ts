@@ -3,7 +3,7 @@ import type { Site, SocialObjects } from "./types";
 export const SITE: Site = {
   website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
   author: "可乐君",
-  profile: "https://satnaing.dev/",
+  profile: "",
   desc: "学术不必顶呱呱，回家还能卖地瓜。",
   title: "不搞学术",
   ogImage: "astropaper-og.jpg",
@@ -15,11 +15,11 @@ export const SITE: Site = {
 
 export const LOCALE = {
   lang: "en", // html lang code. Set this empty and default will be "en"
-  langTag: ["en-EN"], // BCP 47 Language Tags. Set this empty [] to use the environment default
+  langTag: [""], // BCP 47 Language Tags. Set this empty [] to use the environment default
 } as const;
 
 export const LOGO_IMAGE = {
-  enable: false,
+  enable: true,
   svg: true,
   width: 216,
   height: 46,
