@@ -21,7 +21,7 @@ const photos = fs.readdirSync(imageFolder).filter(file => file.endsWith('.jpg') 
         const photoName = photo.split('.')[0]; // 获取图片名称
         return (
           <div class="gallery-photo" data-index={index} key={index}>
-            <img class="photo-img" loading='lazy' decoding="async" src={`/images1/${photo}`} alt={photoName} />
+            <img class="photo-img" loading='lazy' decoding="async" src={`/imgs/${photo}`} alt={photoName} />
             <span class="photo-title">{photoName}</span>
             <span class="photo-time">2024-10-03</span> {/* 假设所有图片时间相同，你可以调整逻辑从文件或其他地方读取实际时间 */}
           </div>
