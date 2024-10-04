@@ -9,8 +9,13 @@ import GalleryComponent from "@components/GalleryComponent";
 // 读取 public/imgs/ 文件夹下的图片
 const images = import.meta.glob("/public/imgs/*.{jpg,jpeg,png,gif}", { eager: true });
 
-// 提取图片路径
-const imagePaths = Object.values(images).map((image) => image.default);
+// 提取图片路径和添加标题和简介
+const imagePaths = Object.values(images).map((image) => {
+  const src = image.default;
+  const title = `Image ${image.default.split('/').pop().split('.')[0]}`; // 提取文件名作为标题
+  const description = `Description for ${title}`; // 添加一个简单的描述
+  return { src, title, description };
+});
 ---
 
 <Layout title={`Gallery | ${SITE.title}`}>
@@ -33,5 +38,6 @@ const imagePaths = Object.values(images).map((image) => image.default);
   }
   .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
     margin-bottom: 20px;
+    position: relative;
   }
 </style>
