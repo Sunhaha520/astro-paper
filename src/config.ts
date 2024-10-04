@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "可乐君",
   profile: "",
   desc: "记录日常生活。",
-  title: "可乐日记",
+  title: "可乐小记",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
@@ -21,7 +21,7 @@ export const LOCALE = {
 export const LOGO_IMAGE = {
   enable: true,
   svg: true,
-  width: 216,
+  width: 180,
   height: 40,
 };
 
