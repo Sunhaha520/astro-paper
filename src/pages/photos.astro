@@ -9,14 +9,14 @@ import fs from "fs";
 import path from "path";
 
 // 获取图片文件列表
+let photoFiles = [];
 const photosDir = path.resolve("./static/photos");
 try {
-  const photoFiles = fs.readdirSync(photosDir).filter(file => /\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)$/i.test(file));
+  photoFiles = fs.readdirSync(photosDir).filter(file => /\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)$/i.test(file));
   // 对图片文件进行排序
   photoFiles.sort((a, b) => b.localeCompare(a));
 } catch (error) {
   console.error("Error reading photos directory:", error);
-  const photoFiles = [];
 }
 ---
 
