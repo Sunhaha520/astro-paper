@@ -12,7 +12,7 @@ const images = import.meta.glob("/public/imgs/*.{jpg,jpeg,png,gif}", { eager: tr
 // 提取图片路径和添加标题和简介
 const imagePaths = Object.values(images).map((image) => {
   const src = image.default;
-  const title = `Image ${image.default.split('/').pop().split('.')[0]}`; // 提取文件名作为标题
+  const title = `Image ${src.split('/').pop().split('.')[0]}`; // 提取文件名作为标题
   const description = `Description for ${title}`; // 添加一个简单的描述
   return { src, title, description, width: 800, height: 600 }; // 假设所有图片的宽高为 800x600
 });
