@@ -6,21 +6,12 @@ import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import fs from "fs";
-
-// 获取图片文件列表
-const photosDir = "./public/imgs";
-const photoFiles = fs.readdirSync(photosDir).filter(file => /\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)$/i.test(file));
-
-// 对图片文件进行排序
-photoFiles.sort((a, b) => b.localeCompare(a));
-
 ---
 
 <Layout title={`GitHub Issues Timeline | ${SITE.title}`}>
   <Header activeNav="photos" />
   <Main pageTitle="GitHub Issues Timeline" pageDesc="Browse our GitHub Issues ...">
     <div class="timeline-wrapper">
-      <h1>GitHub Issues Timeline</h1>
       <div id="timeline" class="timeline"></div>
     </div>
   </Main>
@@ -110,7 +101,7 @@ photoFiles.sort((a, b) => b.localeCompare(a));
   }
 </style>
 
-<script>
+<script client:only>
   async function fetchIssues() {
     try {
       const response = await fetch('https://api.github.com/repos/sunhaha520/shuoshuo/issues');
