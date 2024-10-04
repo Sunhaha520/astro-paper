@@ -11,6 +11,13 @@
     --color-card: 230, 230, 230;
     --color-card-muted: 205, 205, 205;
     --color-border: 236, 233, 233;
+    --timeline-background: #ffffff;
+    --timeline-border: #dddddd;
+    --timeline-shadow: rgba(0, 0, 0, 0.1);
+    --timeline-dot: #007bff;
+    --timeline-dot-shadow: #cce5ff;
+    --timeline-timestamp: #777777;
+    --timeline-label: #007bff;
   }
   html[data-theme="dark"] {
     --color-fill: 33, 39, 55;
@@ -19,6 +26,13 @@
     --color-card: 52, 63, 96;
     --color-card-muted: 138, 51, 2;
     --color-border: 171, 75, 8;
+    --timeline-background: #1e1e1e;
+    --timeline-border: #333333;
+    --timeline-shadow: rgba(255, 255, 255, 0.1);
+    --timeline-dot: #66b3ff;
+    --timeline-dot-shadow: #004080;
+    --timeline-timestamp: #aaaaaa;
+    --timeline-label: #ff6b01;
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
@@ -126,82 +140,81 @@
   }
 }
 
-
-  .timeline-wrapper {
-    @apply mb-14 flex flex-col justify-center;
-  }
-  .timeline-wrapper h1 {
-    @apply text-4xl font-bold text-skin-accent;
-  }
-  .timeline {
-    position: relative;
-    padding-left: 40px;
-    margin-bottom: 20px;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10px;
-    height: 100%;
-    width: 2px;
-    background: #007bff;
-  }
-  .timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-  }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: -30px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #007bff;
-    box-shadow: 0 0 0 4px #cce5ff;
-    transform: translateX(-40%);
-  }
-  .timeline-content {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    background: #fff;
-    position: relative;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-left: -10px;
-  }
-  .timeline-content .timestamp {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    font-size: 12px;
-    color: #777;
-  }
-  .timeline-content .labels {
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    font-size: 12px;
-  }
-  .timeline-content .labels span {
-    display: inline-block;
-    margin-left: 5px;
-    padding: 4px 8px;
-    border-radius: 3px;
-    color: #fff;
-    font-size: 11px;
-    background: #007bff;
-  }
-  .timeline-content .labels span:first-child {
-    margin-left: 0;
-  }
-  .timeline-content .labels span:hover {
-    opacity: 0.8;
-  }
-  .timeline-content .body {
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.6;
-  }
+.timeline-wrapper {
+  @apply mb-14 flex flex-col justify-center;
+}
+.timeline-wrapper h1 {
+  @apply text-4xl font-bold text-skin-accent;
+}
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: 100%;
+  width: 2px;
+  background: var(--timeline-dot);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -30px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--timeline-dot);
+  box-shadow: 0 0 0 4px var(--timeline-dot-shadow);
+  transform: translateX(-40%);
+}
+.timeline-content {
+  border: 1px solid var(--timeline-border);
+  padding: 20px;
+  border-radius: 8px;
+  background: var(--timeline-background);
+  position: relative;
+  box-shadow: 0 2px 10px var(--timeline-shadow);
+  margin-left: -10px;
+}
+.timeline-content .timestamp {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 12px;
+  color: var(--timeline-timestamp);
+}
+.timeline-content .labels {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 12px;
+}
+.timeline-content .labels span {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 11px;
+  background: var(--timeline-label);
+}
+.timeline-content .labels span:first-child {
+  margin-left: 0;
+}
+.timeline-content .labels span:hover {
+  opacity: 0.8;
+}
+.timeline-content .body {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
