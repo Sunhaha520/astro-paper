@@ -153,17 +153,30 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = document.querySelector('.lightbox .next');
   let currentIndex = 0;
 
-  // 获取所有图片元素
-  const photos = Array.from(document.querySelectorAll('.gallery-photo img'));
+  // 绑定事件函数
+  function bindLightboxEvents() {
+    const photos = Array.from(document.querySelectorAll('.gallery-photo img'));
 
-  // 点击图片时，显示 Lightbox
-  photos.forEach((photo, index) => {
-    photo.addEventListener('click', () => {
-      lightbox.style.display = 'flex';
-      lightboxImg.src = photo.src;
-      currentIndex = index;
+    photos.forEach((photo, index) => {
+      photo.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = photo.src;
+        currentIndex = index;
+      });
     });
+  }
+
+  // 初始化时绑定事件
+  bindLightboxEvents();
+
+  // 监听图片动态加载
+  const galleryPhotosContainer = document.querySelector('.gallery-photos');
+
+  const observer = new MutationObserver(() => {
+    bindLightboxEvents();
   });
+
+  observer.observe(galleryPhotosContainer, { childList: true, subtree: true });
 
   // 关闭 Lightbox
   closeBtn.addEventListener('click', () => {
@@ -174,15 +187,15 @@ document.addEventListener('DOMContentLoaded', function() {
   prevBtn.addEventListener('click', () => {
     if (currentIndex > 0) {
       currentIndex--;
-      lightboxImg.src = photos[currentIndex].src;
+      lightboxImg.src = document.querySelectorAll('.gallery-photo img')[currentIndex].src;
     }
   });
 
   // 显示下一张图片
   nextBtn.addEventListener('click', () => {
-    if (currentIndex < photos.length - 1) {
+    if (currentIndex < document.querySelectorAll('.gallery-photo img').length - 1) {
       currentIndex++;
-      lightboxImg.src = photos[currentIndex].src;
+      lightboxImg.src = document.querySelectorAll('.gallery-photo img')[currentIndex].src;
     }
   });
 
