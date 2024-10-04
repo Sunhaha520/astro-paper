@@ -1,51 +1,87 @@
 ---
-import { getCollection } from "astro:content";
+// Astro 文件，使用 import.meta.glob 读取 public 目录中的图片
+
 import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PhotoGallery from "../components/PhotoGallery.jsx";
-import fs from "fs";
-import path from "path";
 
-// 定义 getSortedPosts 函数
-function getSortedPosts(posts) {
-  return posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
-}
+// 使用 import.meta.glob 从 public/imgs 目录加载图片
+const imageFiles = import.meta.glob('/public/imgs/*.{jpg,jpeg,png,gif,webp}', { eager: true });
 
-// Retrieve all published articles
-const posts = await getCollection("blog", ({ data }) => !data.draft);
-const sortedPosts = getSortedPosts(posts);
-
-// List of photos to display in the album
-const initialPhotos = sortedPosts.map(({ data, slug }) => ({
-  src: data.image, // Assuming each post has an image field
-  width: data.imageWidth, // Assuming each post has an imageWidth field
-  height: data.imageHeight, // Assuming each post has an imageHeight field
-  title: data.title,
-  description: data.description,
-}));
-
-// Read images from public/imgs directory
-const publicImgsDir = path.join(process.cwd(), "public", "imgs");
-const imageFiles = fs.readdirSync(publicImgsDir).filter((file) => file.match(/\.(jpg|jpeg|png|gif)$/i));
-const publicPhotos = imageFiles.map((file) => ({
-  src: `./public/imgs/${file}`,
-  width: 800, // Assuming a default width
-  height: 600, // Assuming a default height
-  title: file,
-  description: `Image: ${file}`,
-}));
-
-const photos = [...initialPhotos, ...publicPhotos];
-
+const publicPhotos = Object.keys(imageFiles).map((filePath) => {
+  const fileName = filePath.split('/').pop(); // 获取文件名
+  return {
+    src: `/imgs/${fileName}`, // 返回相对路径
+    width: 800, // 假设默认宽度
+    height: 600, // 假设默认高度
+    title: fileName,
+    description: `Image: ${fileName}`,
+  };
+});
 ---
 
 <Layout title={`Photo Album | ${SITE.title}`}>
   <Header activeNav="photo-album" />
   <Main pageTitle="Photo Album" pageDesc="View our photo album ...">
-    <PhotoGallery photos={photos} />
+    <PhotoGallery photos={publicPhotos} />
   </Main>
   <Footer />
 </Layout>
+
+<style>
+  .gallery-photos {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .gallery-photo {
+    width: calc(25% - 10px);
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
+    flex-grow: 1;
+    flex-basis: calc(25% - 10px);
+  }
+  .gallery-photo img {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+  }
+  .gallery-photo span.photo-title {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    font-size: 0.9rem;
+    color: #fff;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    display: none;
+  }
+  .gallery-photo:hover span.photo-title {
+    display: block;
+  }
+  .gallery-photo:hover img {
+    transform: scale(1.1);
+  }
+  @media screen and (max-width: 1280px) {
+    .gallery-photo {
+      width: calc(33.3% - 10px);
+    }
+  }
+  @media screen and (max-width: 860px) {
+    .gallery-photo {
+      width: calc(50% - 10px);
+    }
+  }
+  @media screen and (max-width: 683px) {
+    .gallery-photo {
+      width: calc(100% - 10px);
+    }
+  }
+</style>
