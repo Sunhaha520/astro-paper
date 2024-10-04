@@ -5,8 +5,7 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import { MasonryPhotoAlbum } from "react-photo-album";
-import "react-photo-album/rows.css";
+import PhotoAlbum from "react-photo-album";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import * as React from "react";
@@ -51,9 +50,10 @@ const handlePhotoClick = (index) => {
 <Layout title={`Photo Album | ${SITE.title}`}>
   <Header activeNav="photo-album" />
   <Main pageTitle="Photo Album" pageDesc="View our photo album ...">
-    <MasonryPhotoAlbum
+    <PhotoAlbum
+      layout="rows"
       photos={photos}
-      onClick={(index) => handlePhotoClick(index)}
+      onClick={(_, photo, index) => handlePhotoClick(index)}
     />
     <Lightbox
       open={open}
