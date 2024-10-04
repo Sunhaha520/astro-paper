@@ -6,7 +6,6 @@ import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import fs from "fs";
-import path from "path";
 
 // 获取图片文件列表
 const photosDir = "./public/imgs";
@@ -19,19 +18,29 @@ photoFiles.sort((a, b) => b.localeCompare(a));
 <Layout title={`Gallery | ${SITE.title}`}>
   <Header activeNav="gallery" />
   <Main pageTitle="Gallery" pageDesc="Browse our photo gallery ...">
+    <!-- 图片展示区域 -->
     <div class="gallery-photos page">
-      {photoFiles.map(file => (
-        <div class="gallery-photo">
-          <img class="photo-img" loading='lazy' decoding="async" src={`/imgs/${file}`} alt={file} />
+      {photoFiles.map((file, index) => (
+        <div class="gallery-photo" key={index}>
+          <img class="photo-img" data-index={index} loading='lazy' decoding="async" src={`/imgs/${file}`} alt={file} />
           <span class="photo-title">{file.replace(/^[0-9 -]+(.*)[.].*/, "$1")}</span>
           <span class="photo-time">{file.replace(/^([0-9-]+).*[.].*/, "$1")}</span>
         </div>
       ))}
     </div>
+
+    <!-- Lightbox 组件 -->
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+      <span class="prev">&lt;</span>
+      <span class="next">&gt;</span>
+    </div>
   </Main>
   <Footer />
 </Layout>
 
+<!-- 样式 -->
 <style>
 .gallery-photos { 
   width: 100%; 
@@ -45,18 +54,16 @@ photoFiles.sort((a, b) => b.localeCompare(a));
   break-inside: avoid; 
   margin-bottom: 10px; 
 }
-.gallery-photo.visible { 
-  visibility: visible; 
-  animation: fadeIn 2s; 
-}
 .gallery-photo img { 
   display: block; 
   width: 100%; 
   border-radius: 0; 
   padding: 4px; 
-  animation: fadeIn 1s; 
   cursor: pointer; 
   transition: all .4s ease-in-out; 
+}
+.gallery-photo:hover img { 
+  transform: scale(1.1); 
 }
 .gallery-photo span.photo-title, .gallery-photo span.photo-time { 
   background: rgba(0, 0, 0, 0.3); 
@@ -64,7 +71,6 @@ photoFiles.sort((a, b) => b.localeCompare(a));
   font-size: 0.9rem; 
   color: #fff; 
   display: none; 
-  animation: fadeIn 1s; 
 }
 .gallery-photo span.photo-title { 
   position: absolute; 
@@ -80,9 +86,7 @@ photoFiles.sort((a, b) => b.localeCompare(a));
 .gallery-photo:hover span.photo-title { 
   display: block; 
 }
-.gallery-photo:hover img { 
-  transform: scale(1.1); 
-}
+
 @media screen and (max-width: 1280px) { 
   .gallery-photos { column-count: 3; } 
 }
@@ -91,10 +95,102 @@ photoFiles.sort((a, b) => b.localeCompare(a));
 }
 @media (max-width: 683px) { 
   .gallery-photos { column-count: 1; } 
-  .photo-time { display: none; } 
 }
-@keyframes fadeIn { 
-  0% { opacity: 0; } 
-  100% { opacity: 1; } 
+
+/* Lightbox 样式 */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox .close, .prev, .next {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.close {
+  top: 10px;
+  right: 25px;
+}
+
+.prev, .next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }
 </style>
+
+<!-- JavaScript 功能 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.querySelector('.lightbox .close');
+  const prevBtn = document.querySelector('.lightbox .prev');
+  const nextBtn = document.querySelector('.lightbox .next');
+  let currentIndex = 0;
+
+  // 获取所有图片元素
+  const photos = Array.from(document.querySelectorAll('.gallery-photo img'));
+
+  // 点击图片时，显示 Lightbox
+  photos.forEach((photo, index) => {
+    photo.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = photo.src;
+      currentIndex = index;
+    });
+  });
+
+  // 关闭 Lightbox
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // 显示上一张图片
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      lightboxImg.src = photos[currentIndex].src;
+    }
+  });
+
+  // 显示下一张图片
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < photos.length - 1) {
+      currentIndex++;
+      lightboxImg.src = photos[currentIndex].src;
+    }
+  });
+
+  // 点击 Lightbox 背景关闭 Lightbox
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+});
+</script>
