@@ -22,7 +22,7 @@ photoFiles.sort((a, b) => b.localeCompare(a));
     <div class="gallery-photos page">
       {photoFiles.map(file => (
         <div class="gallery-photo">
-          <img class="photo-img" loading='lazy' decoding="async" src={`/photos/${file}`} alt={file} />
+          <img class="photo-img" loading='lazy' decoding="async" src={`./public/imgs/${file}`} alt={file} />
           <span class="photo-title">{file.replace(/^[0-9 -]+(.*)[.].*/, "$1")}</span>
           <span class="photo-time">{file.replace(/^([0-9-]+).*[.].*/, "$1")}</span>
         </div>
