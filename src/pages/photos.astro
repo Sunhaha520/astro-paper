@@ -8,7 +8,7 @@ import fs from 'fs';
 import path from 'path';
 
 // Server-side: Read the image files from the folder
-const imageFolder = './public/images1'; // Ensure images are in the `public` folder so they can be served
+const imageFolder = './static/photos'; // Ensure images are in the `public` folder so they can be served
 const photos = fs.readdirSync(imageFolder).filter(file => file.endsWith('.jpg') || file.endsWith('.webp'));
 
 ---
