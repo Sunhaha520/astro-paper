@@ -26,8 +26,9 @@ import 'lightbox.js-react/dist/index.css';
   <Main pageTitle="Gallery" pageDesc="Browse our photo gallery ...">
     <div class="gallery-photos page">
       <SlideshowLightbox className="container grid grid-cols-3 gap-2 mx-auto">
-        {photoFiles.map(file => (
+        {photoFiles.map((file, index) => (
           <img 
+            key={index}
             className="w-full rounded" 
             loading='lazy' 
             decoding="async" 
