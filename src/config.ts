@@ -4,8 +4,8 @@ export const SITE: Site = {
   website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
   author: "可乐君",
   profile: "",
-  desc: "学术不必顶呱呱，回家还能卖地瓜。",
-  title: "不搞学术",
+  desc: "记录日常生活。",
+  title: "可乐日记",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
