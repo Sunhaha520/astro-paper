@@ -1,24 +1,22 @@
+---
 import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import fs from 'fs';
-import path from 'path';
 import * as React from "react";
 import { render } from 'react-dom';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-// Server-side: Read the image files from the folder
-const imageFolder = './public/imgs'; // Ensure images are in the `public` folder so they can be served
-const photos = fs.readdirSync(imageFolder).filter(file => file.endsWith('.jpg') || file.endsWith('.webp'));
+// Server-side: Read the image files from the folder using Astro.glob
+const photos = await Astro.glob('./public/imgs/*.{jpg,webp}');
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
-  const slides = photos.map(photo => ({ src: `/imgs/${photo}` }));
+  const slides = photos.map(photo => ({ src: `/imgs/${photo.file}` }));
 
   const openLightbox = (index) => {
     setCurrentSlide(index);
@@ -29,10 +27,10 @@ const App = () => {
     <>
       <div class="gallery-photos page">
         {photos.map((photo, index) => {
-          const photoName = photo.split('.')[0]; // 获取图片名称
+          const photoName = photo.file.split('.')[0]; // 获取图片名称
           return (
             <div class="gallery-photo" data-index={index} key={index} onClick={() => openLightbox(index)}>
-              <img class="photo-img" loading='lazy' decoding="async" src={`/imgs/${photo}`} alt={photoName} />
+              <img class="photo-img" loading='lazy' decoding="async" src={`/imgs/${photo.file}`} alt={photoName} />
               <span class="photo-title">{photoName}</span>
               <span class="photo-time">2024-10-03</span> {/* 假设所有图片时间相同，你可以调整逻辑从文件或其他地方读取实际时间 */}
             </div>
@@ -52,7 +50,6 @@ const App = () => {
 
 const rootElement = document.getElementById("root");
 render(<App />, rootElement);
-
 ---
 
 <Layout title={`Gallery | ${SITE.title}`}>
