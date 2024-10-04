@@ -4,53 +4,14 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import * as React from "react";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
-import Masonry from "react-masonry-css";
+import GalleryComponent from "@components/GalleryComponent";
 
 // 读取 public/imgs/ 文件夹下的图片
 const importAll = (r) => r.keys().map(r);
-const images = importAll(import.meta.globEager("./public/imgs/*.{jpg,jpeg,png,gif}"));
+const images = importAll(import.meta.globEager("/public/imgs/*.{jpg,jpeg,png,gif}"));
 
 // 提取图片路径
 const imagePaths = images.map((image) => image.default);
-
-// 定义 GalleryComponent 组件
-const GalleryComponent = ({ images }) => {
-  const [open, setOpen] = React.useState(false);
-  const [currentSlide, setCurrentSlide] = React.useState(0);
-
-  const slides = images.map((image) => ({ src: image }));
-
-  const openLightbox = (index) => {
-    setCurrentSlide(index);
-    setOpen(true);
-  };
-
-  return (
-    <>
-      <Masonry
-        breakpointCols={{ default: 3, 800: 2, 400: 1 }}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {images.map((image, index) => (
-          <div key={index} onClick={() => openLightbox(index)}>
-            <img src={image} alt={`Image ${index}`} style={{ cursor: "pointer" }} />
-          </div>
-        ))}
-      </Masonry>
-
-      <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        slides={slides}
-        index={currentSlide}
-      />
-    </>
-  );
-};
 ---
 
 <Layout title={`Gallery | ${SITE.title}`}>
