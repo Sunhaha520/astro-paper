@@ -1,4 +1,3 @@
----
 // Astro 文件，使用 import.meta.glob 读取 public 目录中的图片
 
 import { SITE } from "@config";
@@ -13,14 +12,19 @@ const imageFiles = import.meta.glob('/public/imgs/*.{jpg,jpeg,png,gif,webp}', { 
 
 const publicPhotos = Object.keys(imageFiles).map((filePath) => {
   const fileName = filePath.split('/').pop(); // 获取文件名
+  console.log('File Path:', filePath);
+  console.log('File Name:', fileName);
   return {
-    src: `./public/imgs/${fileName}`, // 直接使用文件名
+    src: `/imgs/${fileName}`, // 使用绝对路径
     width: 800, // 假设默认宽度
     height: 600, // 假设默认高度
     title: fileName,
     description: `Image: ${fileName}`,
   };
 });
+
+console.log('Public Photos:', publicPhotos);
+
 ---
 
 <Layout title={`Photo Album | ${SITE.title}`}>
