@@ -1,14 +1,17 @@
-import { readdirSync } from 'fs';
-import { join } from 'path';
+---
 import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import fs from 'fs';
+import path from 'path';
 
-// 读取图片文件夹中的图片文件
-const imageFolder = './static/photos';
-const photos = readdirSync(imageFolder).filter(file => file.endsWith('.jpg') || file.endsWith('.webp'));
+// Server-side: Read the image files from the folder
+const imageFolder = './public/images1'; // Ensure images are in the `public` folder so they can be served
+const photos = fs.readdirSync(imageFolder).filter(file => file.endsWith('.jpg') || file.endsWith('.webp'));
+
+---
 
 <Layout title={`Gallery | ${SITE.title}`}>
   <Header activeNav="gallery" />
@@ -139,4 +142,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
