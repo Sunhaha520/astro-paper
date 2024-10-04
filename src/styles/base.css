@@ -182,7 +182,6 @@
   border-radius: 8px;
   background: var(--timeline-background);
   position: relative;
-  box-shadow: 0 2px 10px var(--timeline-shadow);
   margin-left: -10px;
 }
 .timeline-content .timestamp {
@@ -215,6 +214,7 @@
 }
 .timeline-content .body {
   margin-top: 10px;
-  font-size: 14px;
+  margin-bottom: 20px;
+  font-size: 15px;
   line-height: 1.6;
 }
