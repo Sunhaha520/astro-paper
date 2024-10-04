@@ -1,4 +1,3 @@
----
 import { getCollection } from "astro:content";
 import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
@@ -37,9 +36,9 @@ photoFiles.sort((a, b) => b.localeCompare(a));
     </div>
   </Main>
   <Footer />
-
-  <!-- Lightbox 功能的 JavaScript -->
-  <script client:load>
+  
+  <!-- client:only 用于保证 JavaScript 仅在客户端执行 -->
+  <script client:only="react">
     document.addEventListener('DOMContentLoaded', function() {
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
