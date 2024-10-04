@@ -5,30 +5,23 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import fs from "fs";
-import path from "path";
 
-// 获取图片文件列表
-let photoFiles = [];
-const photosDir = path.resolve("./static/photos");
-try {
-  photoFiles = fs.readdirSync(photosDir).filter(file => /\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)$/i.test(file));
-  // 对图片文件进行排序
-  photoFiles.sort((a, b) => b.localeCompare(a));
-} catch (error) {
-  console.error("Error reading photos directory:", error);
-}
+// 图片链接数组
+const photoLinks = [
+  "https://r2.xiaoayu.eu.org/2024/10/925fa31c2abf1e95f9434b12a763e22f.webp",
+  // 添加更多图片链接
+];
 ---
 
 <Layout title={`Gallery | ${SITE.title}`}>
   <Header activeNav="gallery" />
   <Main pageTitle="Gallery" pageDesc="Browse our photo gallery ...">
     <div class="gallery-photos page">
-      {photoFiles.map(file => (
+      {photoLinks.map((link, index) => (
         <div class="gallery-photo">
-          <img class="photo-img" loading='lazy' decoding="async" src={`/photos/${file}`} alt={file} />
-          <span class="photo-title">{file.replace(/^[0-9 -]+(.*)[.].*/, "$1")}</span>
-          <span class="photo-time">{file.replace(/^([0-9-]+).*[.].*/, "$1")}</span>
+          <img class="photo-img" loading='lazy' decoding="async" src={link} alt={`Photo ${index + 1}`} />
+          <span class="photo-title">Photo {index + 1}</span>
+          <span class="photo-time">2023-10-01</span>
         </div>
       ))}
     </div>
