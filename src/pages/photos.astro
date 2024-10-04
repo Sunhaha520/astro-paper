@@ -11,7 +11,7 @@ import Masonry from "react-masonry-css";
 
 // 读取 public/imgs/ 文件夹下的图片
 const importAll = (r) => r.keys().map(r);
-const images = importAll(import.meta.globEager("/public/imgs/*.{jpg,jpeg,png,gif}"));
+const images = importAll(import.meta.globEager("./public/imgs/*.{jpg,jpeg,png,gif}"));
 
 // 提取图片路径
 const imagePaths = images.map((image) => image.default);
