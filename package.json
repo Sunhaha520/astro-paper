@@ -24,7 +24,8 @@
     "remark-toc": "^9.0.0",
     "satori": "^0.11.0",
     "tailwindcss": "^3.4.11",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "yet-another-react-lightbox": "^1.1.1"
   },
   "devDependencies": {
     "@astrojs/react": "^3.6.2",
