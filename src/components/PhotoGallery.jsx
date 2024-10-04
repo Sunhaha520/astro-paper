@@ -8,10 +8,17 @@ export default function PhotoGallery({ photos }) {
   const [open, setOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Debug: 打印 photos 检查数据
+  console.log("Photos received in PhotoGallery:", photos);
+
   const handlePhotoClick = (index) => {
     setCurrentSlide(index);
     setOpen(true);
   };
+
+  if (!photos || photos.length === 0) {
+    return <div>No photos to display</div>;
+  }
 
   return (
     <>
@@ -29,3 +36,4 @@ export default function PhotoGallery({ photos }) {
     </>
   );
 }
+
