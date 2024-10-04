@@ -18,7 +18,6 @@ photoFiles.sort((a, b) => b.localeCompare(a));
 <Layout title={`Gallery | ${SITE.title}`}>
   <Header activeNav="gallery" />
   <Main pageTitle="Gallery" pageDesc="Browse our photo gallery ...">
-    <!-- 图片展示区域 -->
     <div class="gallery-photos page">
       {photoFiles.map((file, index) => (
         <div class="gallery-photo" key={index}>
@@ -29,7 +28,6 @@ photoFiles.sort((a, b) => b.localeCompare(a));
       ))}
     </div>
 
-    <!-- Lightbox 组件 -->
     <div id="lightbox" class="lightbox">
       <span class="close">&times;</span>
       <img class="lightbox-img" id="lightbox-img" src="" alt="" />
@@ -38,7 +36,10 @@ photoFiles.sort((a, b) => b.localeCompare(a));
     </div>
   </Main>
   <Footer />
+  <!-- 引入外部脚本 -->
+  <script type="module" src="./public/lightbox.js" client:load></script>
 </Layout>
+
 
 <!-- 样式 -->
 <style>
