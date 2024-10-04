@@ -7,11 +7,10 @@ import Footer from "@components/Footer.astro";
 import GalleryComponent from "@components/GalleryComponent";
 
 // 读取 public/imgs/ 文件夹下的图片
-const importAll = (r) => r.keys().map(r);
-const images = importAll(import.meta.globEager("/public/imgs/*.{jpg,jpeg,png,gif}"));
+const images = import.meta.glob("/public/imgs/*.{jpg,jpeg,png,gif}", { eager: true });
 
 // 提取图片路径
-const imagePaths = images.map((image) => image.default);
+const imagePaths = Object.values(images).map((image) => image.default);
 ---
 
 <Layout title={`Gallery | ${SITE.title}`}>
