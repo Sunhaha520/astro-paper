@@ -15,7 +15,7 @@
               "state": {
                 "file": "src/content/blog/newblog.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
