@@ -4,7 +4,6 @@ pubDatetime: 2024-10-05T15:57:52.737Z
 title: “居安思危”：养“博客”防老
 slug: newblog
 featured: false
-ogImage: 
 tags:
   - 思考
 description: 年过25，是该做个博客来防老了，鲜艳的色彩和精致布局总有些幼稚，于是我在一个主题的基础上改了一个国风博客。
