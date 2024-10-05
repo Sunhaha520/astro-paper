@@ -11,8 +11,12 @@
             "id": "d383066b30c66130",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "src/content/blog/newblog.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "src/content/blog/newblog.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "src/content/blog/newblog.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "src/content/blog/newblog.md"
+              }
             }
           },
           {
@@ -149,7 +157,10 @@
   },
   "active": "d383066b30c66130",
   "lastOpenFiles": [
-    "未命名.canvas",
-    "src/content/blog/adding-new-post.md"
+    "src/content/blog/astro-paper-4.md",
+    "src/content/blog/newblog.md",
+    "src/content/blog/astro-paper-2.md",
+    "src/content/blog/adding-new-post.md",
+    "未命名.canvas"
   ]
 }
