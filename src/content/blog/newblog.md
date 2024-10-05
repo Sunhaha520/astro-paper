@@ -1,8 +1,8 @@
 ---
 title: The title of the post
-author: your name
-pubDatetime: 2022-09-21T05:17:19Z
-slug: the-title-of-the-post
+author: 可乐君
+pubDatetime: 2024-09-21T05:17:19Z
+slug: my-new-blog
 featured: true
 draft: false
 tags:
