@@ -1,12 +1,15 @@
 ---
-author: 可乐君
-pubDatetime: 2024-10-05T15:57:52.737Z
-title: 居安思危：养“博客”防老
-slug: newblog
+title: The title of the post
+author: your name
+pubDatetime: 2022-09-21T05:17:19Z
+slug: the-title-of-the-post
 featured: true
+draft: false
 tags:
-  - 思考
-description: "年过25，是该做个博客来防老了，鲜艳的色彩和精致布局总有些幼稚，于是我在一个主题的基础上改了一个国风博客。"
+  - some
+  - example
+  - tags
+description: This is the example description of the example post.
 ---
 # 原由
 前不久，女友对我说，再过两年，我们就要步入婚姻的殿堂，随后，宝宝也将降临。我听后不禁愣住了，内心涌起一阵惊愕：“啊？”在我心中，“父亲”这个角色似乎还遥不可及，仿佛自己仍是那个18岁的少年。
