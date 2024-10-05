@@ -1,14 +1,12 @@
 ---
-title: The title of the post
+title: 居安思危：建博防老
 author: 可乐君
-pubDatetime: 2024-09-21T05:17:19Z
+pubDatetime: 2024-10-05T05:17:19Z
 slug: my-new-blog
 featured: true
 draft: false
 tags:
-  - some
-  - example
-  - tags
+  - 感悟
 description: This is the example description of the example post.
 ---
 # 原由
