@@ -109,6 +109,100 @@ import fs from "fs";
     line-height: 1.6;
     color: #333;
   }
+
+  /* 添加的 Markdown 样式 */
+  .timeline-content .body h1,
+  .timeline-content .body h2,
+  .timeline-content .body h3,
+  .timeline-content .body h4,
+  .timeline-content .body h5,
+  .timeline-content .body h6 {
+    margin: 10px 0;
+    font-weight: bold;
+  }
+
+  .timeline-content .body h1 {
+    font-size: 2em;
+  }
+
+  .timeline-content .body h2 {
+    font-size: 1.5em;
+  }
+
+  .timeline-content .body h3 {
+    font-size: 1.17em;
+  }
+
+  .timeline-content .body h4 {
+    font-size: 1em;
+  }
+
+  .timeline-content .body h5 {
+    font-size: 0.83em;
+  }
+
+  .timeline-content .body h6 {
+    font-size: 0.67em;
+  }
+
+  .timeline-content .body strong {
+    font-weight: bold;
+  }
+
+  .timeline-content .body em {
+    font-style: italic;
+  }
+
+  .timeline-content .body u {
+    text-decoration: underline;
+  }
+
+  .timeline-content .body a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+
+  .timeline-content .body a:hover {
+    color: #0056b3;
+  }
+
+  .timeline-content .body code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+
+  .timeline-content .body pre {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: monospace;
+  }
+
+  .timeline-content .body blockquote {
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
+    margin: 10px 0;
+    color: #6c757d;
+  }
+
+  .timeline-content .body ul,
+  .timeline-content .body ol {
+    margin: 10px 0;
+    padding-left: 20px;
+  }
+
+  .timeline-content .body li {
+    margin: 5px 0;
+  }
+
+  .timeline-content .body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
 </style>
 
 <script client:only>

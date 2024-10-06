@@ -118,14 +118,14 @@ photoFiles.sort((a, b) => b.localeCompare(a));
 .gallery-photos { 
   width: 100%; 
   column-count: 4; 
-  column-gap: 10px; 
+  column-gap: 1px; 
 }
 .gallery-photo { 
   width: 100%; 
   position: relative; 
   overflow: hidden; 
   break-inside: avoid; 
-  margin-bottom: 10px; 
+  margin-bottom: 1px; 
 }
 .gallery-photo img { 
   display: block; 
@@ -164,10 +164,10 @@ photoFiles.sort((a, b) => b.localeCompare(a));
   .gallery-photos { column-count: 3; } 
 }
 @media screen and (max-width: 860px) { 
-  .gallery-photos { column-count: 2; } 
+  .gallery-photos { column-count: 3; } 
 }
 @media (max-width: 683px) { 
-  .gallery-photos { column-count: 1; } 
+  .gallery-photos { column-count: 3; } 
 }
 
 /* Lightbox 样式 */

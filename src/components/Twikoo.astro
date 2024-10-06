@@ -13,13 +13,13 @@ function loadTwikoo() {
 const commentsContainer = document.getElementById('tcomment');
 if (commentsContainer) {
 const script = document.createElement('script');
-script.src = 'https://cdn.staticfile.org/twikoo/1.6.31/twikoo.all.min.js';
+script.src = 'https://cdn.staticfile.org/twikoo/1.6.39/twikoo.all.min.js';
 script.async = true;
 script.onload = () => {
   const initScript = document.createElement('script');
   initScript.innerHTML = `
     twikoo.init({
-        envId: 'http://twikoo2.xiaoayu.eu.org/.netlify/functions/twikoo',
+        envId: 'https://twikoo3.xiaoayu.eu.org/',
         el: '#tcomment',
     });
 `;
