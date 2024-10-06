@@ -11,7 +11,7 @@
     --color-card: 230,230,230;
     --color-card-muted: 205,205,205;
     --color-border: 221,221,221;
-    --timeline-background: #fff9ef;
+    --timeline-background: #faf8f1;
     --timeline-border: #dddddd;
     --timeline-shadow: rgba(0, 0, 0, 0.1);
     --timeline-dot: #007bff;
@@ -31,7 +31,7 @@
     --color-card: 52,63,96;
     --color-card-muted: 138,51,2;
     --color-border: 238,238,238;
-    --timeline-background: #2e343c;
+    --timeline-background: #18181b;
     --timeline-border: #7d7d7d;
     --timeline-shadow: rgba(255, 255, 255, 0.1);
     --timeline-dot: #66b3ff;
@@ -187,7 +187,7 @@
   transform: translateX(-40%);
 }
 .timeline-content {
-  border: 1px solid var(--timeline-border);
+  border: 2px solid var(--timeline-border);
   padding: 20px;
   border-radius: 8px;
   background: var(--timeline-background);
@@ -238,6 +238,7 @@
   margin: 10px 0;
   aspect-ratio: 16 / 9; /* 设置宽高比为 16:9 */
   object-fit: contain; /* 确保内容适应 iframe 的尺寸 */
+  border-radius: 10px;
 }
 
 .timeline-content .body h1,
