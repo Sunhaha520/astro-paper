@@ -3,7 +3,7 @@ title: 居安思危：建博防老
 author: 可乐君
 pubDatetime: 2024-10-05T05:17:19Z
 slug: my-new-blog
-featured: true
+featured: false
 draft: false
 tags:
   - 感悟
