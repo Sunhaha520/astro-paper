@@ -5,12 +5,12 @@
 @layer base {
   :root,
   html[data-theme="light"] {
-    --color-fill: 246, 238, 225;
-    --color-text-base: 1, 44, 86;
-    --color-accent: 225, 74, 57;
-    --color-card: 217, 209, 195;
-    --color-card-muted: 239, 216, 176;
-    --color-border: 220, 152, 145;
+    --color-fill: 250,248,241;
+    --color-text-base: 40,39,40;
+    --color-accent: 23,23,23;
+    --color-card: 230,230,230;
+    --color-card-muted: 205,205,205;
+    --color-border: 221,221,221;
     --timeline-background: #fff9ef;
     --timeline-border: #dddddd;
     --timeline-shadow: rgba(0, 0, 0, 0.1);
@@ -20,14 +20,17 @@
     --timeline-label: #007bff;
     --timeline-code-bg: #8af3af;
     --timeline-bq:#4d39ff;
+    --twikoo-anniu:rgba(43, 43, 44, 1);
+    --twikoo-anniufa:#000000;
+    --twikoo-anniuzi:rgba(255,255,255,0.9);
   }
   html[data-theme="dark"] {
-    --color-fill: 47, 55, 65;
-    --color-text-base: 230, 230, 230;
-    --color-accent: 225, 74, 57;
-    --color-card: 63, 75, 90;
-    --color-card-muted: 89, 107, 129;
-    --color-border: 59, 70, 85;
+    --color-fill: 24,24,27;
+    --color-text-base: 234,237,243;
+    --color-accent: 255,255,255;
+    --color-card: 52,63,96;
+    --color-card-muted: 138,51,2;
+    --color-border: 238,238,238;
     --timeline-background: #2e343c;
     --timeline-border: #7d7d7d;
     --timeline-shadow: rgba(255, 255, 255, 0.1);
@@ -37,6 +40,9 @@
     --timeline-label: #ff6b01;
     --timeline-code-bg: #2950ff;
     --timeline-bq:#c2a4ff;
+    --twikoo-anniu:rgba(230, 225, 225,0.8);
+    --twikoo-anniufa:rgb(255, 255, 255);
+    --twikoo-anniuzi:rgba(0,0,0,0.8);
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
@@ -327,4 +333,47 @@
   max-width: 100%;
   height: auto;
   border-radius: 4px;
+}
+
+
+/* Twikoo样式 */
+.tk-row .tk-avatar{
+  /* 样式 */
+  display: none;
+}
+
+.tk-row.actions {
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	margin-left: 0rem!important;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.tk-extras {
+	color: #999999;
+	font-size: 0.7rem!important;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.tk-comments-container {
+	min-height: 10rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.tk-comments-container > div {
+	position: relative; /* 使伪元素相对于当前 div 定位 */
+	padding-bottom: 1rem; /* 为虚线留出空间 */
+}
+
+.tk-comments-container > div:not(:last-child)::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	border-bottom: 1px dashed #ccc; /* 添加虚线 */
 }

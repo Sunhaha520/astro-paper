@@ -112,70 +112,14 @@ const nextPost =
 
     <hr class="my-6 border-dashed" />
 
-    <!-- Previous/Next Post Buttons -->
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-      {
-        prevPost && (
-          <a
-            href={`/posts/${prevPost.slug}`}
-            class="flex w-full gap-1 hover:opacity-75"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left flex-none"
-            >
-              <>
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M15 6l-6 6l6 6" />
-              </>
-            </svg>
-            <div>
-              <span>上一篇</span>
-              <div class="text-sm text-skin-accent/85">{prevPost.title}</div>
-            </div>
-          </a>
-        )
-      }
-      {
-        nextPost && (
-          <a
-            href={`/posts/${nextPost.slug}`}
-            class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2"
-          >
-            <div>
-              <span>下一篇</span>
-              <div class="text-sm text-skin-accent/85">{nextPost.title}</div>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right flex-none"
-            >
-              <>
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M9 6l6 6l-6 6" />
-              </>
-            </svg>
-          </a>
-        )
-      }
     </div>
-    <br />
+   
+    <svg  class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6029" width="40" height="40" class="rotate-90">
+      <path d="M999.619048 512c0-268.190476-219.428571-487.619048-487.619048-487.619048S24.380952 243.809524 24.380952 512c0 129.219048 51.2 246.247619 131.657143 334.019048l-43.885714 82.895238c-12.190476 24.380952-4.87619 53.638095 19.504762 65.828571 7.314286 2.438095 17.066667 4.87619 24.380952 4.876191l394.971429-2.438096C802.133333 977.67619 999.619048 768 999.619048 512zM546.133333 924.038095l-17.066666 2.438095H197.485714l24.380953-46.323809 24.380952-46.32381-36.571429-39.009523C136.533333 719.238095 97.52381 616.838095 97.52381 512c0-229.180952 185.295238-414.47619 414.47619-414.47619s414.47619 185.295238 414.47619 414.47619c0 214.552381-168.228571 394.971429-380.342857 412.038095z" p-id="6030"></path>
+      <path d="M304.761905 499.809524m-60.952381 0a60.952381 60.952381 0 1 0 121.904762 0 60.952381 60.952381 0 1 0-121.904762 0Z" p-id="6031"></path>
+      <path d="M524.190476 499.809524m-60.952381 0a60.952381 60.952381 0 1 0 121.904762 0 60.952381 60.952381 0 1 0-121.904762 0Z" p-id="6032"></path>
+      <path d="M743.619048 499.809524m-60.952381 0a60.952381 60.952381 0 1 0 121.904762 0 60.952381 60.952381 0 1 0-121.904762 0Z" p-id="6033"></path>
+    </svg><span style="font-size: 22px; font-weight: bold; vertical-align: middle;">评论</span>
   <Comments />
   </main>
   <Footer />

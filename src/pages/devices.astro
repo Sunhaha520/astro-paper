@@ -114,13 +114,9 @@ const devices: DeviceType[] = [
         <div class="transition duration-200 ease-in-out transform shadow-lg rounded-lg hover:scale-105 dark:bg-true-gray-800 border border-gray-200 dark:border-true-gray-700">
           <div class="relative w-full bg-true-gray-0 rounded-t-lg overflow-hidden dark:bg-true-gray-900"
                style="aspect-ratio: 16 / 9; min-height: 168px;">
-            <!-- 加载动画 -->
-            <div class="loader flex justify-center items-center absolute inset-0">
-              <div class="spinner"></div>
-            </div>
             <!-- 图片 -->
-            <img src={device.img} alt={device.name} class="object-cover w-full h-full hidden"
-                 width="300" height="168" loading="lazy" onload="this.style.display = 'block'; this.previousElementSibling.style.display = 'none';" />
+            <img src={device.img} class="object-cover w-full h-full"
+                 width="300" height="168" loading="lazy" />
           </div>
           <div class="flex flex-col items-center justify-between h-full p-4">
             <div class="text-center">
@@ -135,29 +131,4 @@ const devices: DeviceType[] = [
     </div>
   </Main>
   <Footer />
-  
-  <!-- 整合的CSS -->
-  <style>
-    /* 定义旋转加载动画 */
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .loader {
-      background-color: rgba(255, 255, 255, 0.1); /* 半透明背景，覆盖在图片上 */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .spinner {
-      border: 4px solid rgba(0, 0, 0, 0.1); /* 边框 */
-      border-top: 4px solid #3498db; /* 蓝色部分 */
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite; /* 旋转效果 */
-    }
-  </style>
 </Layout>
