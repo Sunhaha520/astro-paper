@@ -2,7 +2,7 @@
 author: 可乐君
 pubDatetime: 2024-10-07T10:31:41.816Z
 title: 缅怀乔布斯：创新、艺术与科技的永恒之光
-slug: steve-jobs
+slug: steve-jobs-1
 featured: true
 ogImage: https://r2.xiaoayu.eu.org/2024/10/40224d60bd1d1647e0cb2f461e43df1b.webp
 tags:
