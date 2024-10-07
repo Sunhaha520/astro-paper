@@ -1,6 +1,6 @@
 ---
 author: 可乐君
-pubDatetime: 2024-10-07T10:31:41.816Z
+pubDatetime: 2024-10-07T02:31:41.816Z
 title: 缅怀乔布斯：创新、艺术与科技的永恒之光
 slug: steve-jobs-1
 featured: true
