@@ -88,7 +88,7 @@ const devices: DeviceType[] = [
         description: "平时听听歌挺好的，也是个不错的天气助手和闹钟。"
     },
     {
-        name: "联想X4 骨传导耳机",
+        name: "联想X4 骨传导",
         img: "https://cdn.dribbble.com/userupload/15094414/file/original-b86a81a9eb3ecdd9b4c0cdbf1d83b73b.webp",
         description: "之前耳朵发炎，买了它，确实有用，运动出门带着方便"
     },
@@ -113,10 +113,10 @@ const devices: DeviceType[] = [
       {devices.map((device) => (
         <div class="transition duration-200 ease-in-out transform shadow-lg rounded-lg hover:scale-105 dark:bg-true-gray-800 border border-gray-200 dark:border-true-gray-700">
           <div class="relative w-full bg-true-gray-0 rounded-t-lg overflow-hidden dark:bg-true-gray-900"
-               style="aspect-ratio: 16 / 9; min-height: 168px;">
+               style="padding-bottom: 90%;">
             <!-- 图片 -->
-            <img src={device.img} class="object-cover w-full h-full"
-                 width="300" height="168" loading="lazy" />
+            <img src={device.img} class="absolute top-0 left-0 object-cover w-full h-full"
+                 width="300" height="375" loading="lazy" />
           </div>
           <div class="flex flex-col items-center justify-between h-full p-4">
             <div class="text-center">
