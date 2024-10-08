@@ -142,8 +142,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -156,7 +155,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "64c44d541146c305",
+  "active": "3fe66b90068adfdb",
   "lastOpenFiles": [
     "src/content/blog/yunda-21student.md",
     "src/content/blog/msk-tlp.md",
