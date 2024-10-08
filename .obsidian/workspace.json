@@ -4,18 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "bfbbc06168b64b79",
+        "id": "9be11c257897a3da",
         "type": "tabs",
         "children": [
           {
-            "id": "3fe66b90068adfdb",
+            "id": "7648010ce05ad554",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "src/content/blog/749-ju.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
@@ -155,14 +155,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3fe66b90068adfdb",
+  "active": "7648010ce05ad554",
   "lastOpenFiles": [
+    "src/content/blog/ai-summary.md",
+    "src/content/blog/749-ju.md",
     "src/content/blog/jinan-guihuo.md",
     "src/content/blog/newblog.md",
     "src/content/blog/yanjiusheng.md",
-    "src/content/blog/749-ju.md",
     "src/content/blog/msk-tlp.md",
-    "src/content/blog/ai-summary.md",
     "src/content/blog/steve-jobs-1.md",
     "src/content/blog/yunda-21student.md",
     "src/content/blog/adding-new-post.md",
