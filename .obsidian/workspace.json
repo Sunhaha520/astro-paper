@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/ai-summary.md",
+                "file": "src/content/blog/jinan-guihuo.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "src/content/blog/ai-summary.md",
+                "file": "src/content/blog/jinan-guihuo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "src/content/blog/ai-summary.md",
+                "file": "src/content/blog/jinan-guihuo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "src/content/blog/ai-summary.md"
+                "file": "src/content/blog/jinan-guihuo.md"
               }
             }
           },
@@ -157,12 +157,13 @@
   },
   "active": "3fe66b90068adfdb",
   "lastOpenFiles": [
-    "src/content/blog/yunda-21student.md",
-    "src/content/blog/msk-tlp.md",
-    "src/content/blog/ai-summary.md",
-    "src/content/blog/newblog.md",
-    "src/content/blog/yanjiusheng.md",
     "src/content/blog/steve-jobs-1.md",
+    "src/content/blog/yanjiusheng.md",
+    "src/content/blog/yunda-21student.md",
+    "src/content/blog/newblog.md",
+    "src/content/blog/msk-tlp.md",
+    "src/content/blog/jinan-guihuo.md",
+    "src/content/blog/ai-summary.md",
     "src/content/blog/adding-new-post.md",
     "src/content/blog/astro-paper-2.md",
     "src/content/blog/astro-paper-3.md",
