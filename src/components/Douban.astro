@@ -1,0 +1,51 @@
+---
+// Douban.astro
+
+// 使用 Astro.glob 获取 /src/content/blog 目录下的所有 Markdown 文件
+const posts = await Astro.glob('/src/content/blog/*.md');
+
+// 获取当前页面的 slug
+const currentSlug = Astro.params.slug;
+
+// 找到与当前 slug 匹配的 Markdown 文件
+const matchingPost = posts.find(post => post.frontmatter.slug === currentSlug);
+
+// 获取 doubanurl 属性
+const doubanurl = matchingPost?.frontmatter.doubanurl;
+
+// 只有当 doubanurl 存在时才进行 API 请求
+let dbFetch = null;
+if (doubanurl) {
+  const dbApiUrl = `https://neodb.social/api/catalog/fetch?url=${encodeURIComponent(doubanurl)}`;
+  try {
+    dbFetch = await fetch(dbApiUrl).then(response => response.json());
+  } catch (error) {
+    console.error("Failed to fetch data from Douban API:", error);
+  }
+}
+---
+
+{doubanurl && dbFetch ? (
+  <div class="db-card">
+    <div class="db-card-subject">
+      <div class="db-card-post">
+        <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src={dbFetch.cover_image_url} />
+      </div>
+      <div class="db-card-content">
+        <div class="db-card-title">
+          <a href={doubanurl} class="cute" target="_blank" rel="noreferrer">{dbFetch.title}</a>
+        </div>
+        <div class="rating">
+          <span class="allstardark">
+            <span class="allstarlight" style={`width:${dbFetch.rating * 10}%`}></span>
+          </span>
+          <span class="rating_nums">{dbFetch.rating}</span>
+        </div>
+        <div class="db-card-abstract">{dbFetch.brief}</div>
+      </div>
+      <div class="db-card-cate">{dbFetch.category}</div>
+    </div>
+  </div>
+) : (
+  <p style="text-align: center;"><small>远程获取内容失败，请检查 API 有效性。</small></p>
+)}
