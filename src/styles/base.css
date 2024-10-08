@@ -23,6 +23,8 @@
     --twikoo-anniu:rgba(43, 43, 44, 1);
     --twikoo-anniufa:#000000;
     --twikoo-anniuzi:rgba(255,255,255,0.9);
+    --ai-border:#a4a4a4;
+    --ai-explain-bg:#fff;
   }
   html[data-theme="dark"] {
     --color-fill: 24,24,27;
@@ -43,6 +45,8 @@
     --twikoo-anniu:rgba(230, 225, 225,0.8);
     --twikoo-anniufa:rgb(255, 255, 255);
     --twikoo-anniuzi:rgba(0,0,0,0.8);
+    --ai-border:#fff;
+    --ai-explain-bg:#2b2b2b;
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
@@ -377,4 +381,58 @@
 	bottom: 0;
 	width: 100%;
 	border-bottom: 1px dashed #ccc; /* 添加虚线 */
+}
+
+
+
+.post-ai {
+  background: var(--color-fill);
+  border-radius: 0.2rem;
+  padding: 1rem;
+  line-height: 1.5;
+  border: 2px solid var(--ai-border);
+  margin: 1.5rem 0;
+}
+
+.ai-title {
+  display: flex;
+  color:rgba(var(--color-text-base), var(--tw-text-opacity)) !important;
+  border-radius: 0.5rem;
+  align-items: center;
+  padding: 0 0.25rem;
+  cursor: default;
+  user-select: none;
+}
+
+.ai-title-icon {
+  width: 20px;
+  height: auto;
+  margin-right: 0.25rem;
+}
+
+.ai-title-text {
+  font-weight: bold;
+  margin-left: 1rem;
+  line-height: 1;
+}
+
+.ai-explanation {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  background: var(--ai-explain-bg);
+  border-radius: 0.2rem;
+  border: 1px solid var(--ai-explain-bg);
+  font-size: 1.0rem;
+  line-height: 1.7;
+  display: inline-block;
+  width: 100%;
+  color:rgba(var(--color-text-base), var(--tw-text-opacity)) !important;
+}
+
+.ai-explanation span {
+  margin-left: 0.5rem;
+}
+
+.ai-explanation-content {
+  display: none !important;
 }

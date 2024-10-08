@@ -9,6 +9,8 @@ import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
 import Comments from "@components/Twikoo.astro";
+import Ai from "@components/Ai.astro";
+
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -85,6 +87,7 @@ const nextPost =
       className="my-2"
     />
     <article id="article" class="prose mx-auto mt-8 max-w-3xl">
+      <Ai />
       <Content />
     </article>
 
