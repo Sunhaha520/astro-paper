@@ -7,12 +7,10 @@ title: "关于🧑‍💻"
 
 幼时家贫，故深知金钱之重，心怀创业之志。今已有若干构想，愿与志同道合之士共商。  
 
-君有佳偶一位，温婉娴淑，琴瑟和鸣，生活甜蜜幸福。   
+君有佳偶一位，温婉娴淑，琴瑟和鸣，生活甜蜜幸福。 
 
-
-<div>
-  <img src="/assets/2.gif" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
-</div>
+## 我的足迹
+<center><iframe scrolling=no style="min-height:250px !important;" src="/maps.html" width="100%"></iframe></center>
 
 ## 交换友链
 
