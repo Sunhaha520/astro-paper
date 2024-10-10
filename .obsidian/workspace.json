@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/749-ju.md",
+                "file": "src/content/blog/nobel-1.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "src/content/blog/749-ju.md",
+                "file": "src/content/blog/nobel-1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "src/content/blog/749-ju.md",
+                "file": "src/content/blog/nobel-1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "src/content/blog/749-ju.md"
+                "file": "src/content/blog/nobel-1.md"
               }
             }
           },
@@ -157,9 +157,10 @@
   },
   "active": "7648010ce05ad554",
   "lastOpenFiles": [
+    "src/content/blog/jinan-guihuo.md",
+    "src/content/blog/nobel-1.md",
     "src/content/blog/ai-summary.md",
     "src/content/blog/749-ju.md",
-    "src/content/blog/jinan-guihuo.md",
     "src/content/blog/newblog.md",
     "src/content/blog/yanjiusheng.md",
     "src/content/blog/msk-tlp.md",
