@@ -25,3 +25,4 @@ title: "关于🧑‍💻"
 - [可乐君的小站](https://kelejun.cn)
 - [可乐实验室](https://edu.kelejun.cn)
 - [奶昔博客](https://blog.xiaoayu.ren)
+- [可乐实验室频道](https://memo.kelejun.cn)
