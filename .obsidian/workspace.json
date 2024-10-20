@@ -13,10 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/add-map.md",
+                "file": "src/content/blog/jingdong1.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "jingdong1"
             }
           }
         ]
@@ -39,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
             }
           },
           {
@@ -54,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
             }
           },
           {
@@ -62,7 +68,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
             }
           }
         ]
@@ -85,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "src/content/blog/add-map.md",
+                "file": "src/content/blog/jingdong1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "jingdong1 的反向链接列表"
             }
           },
           {
@@ -102,10 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "src/content/blog/add-map.md",
+                "file": "src/content/blog/jingdong1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "jingdong1 的出链列表"
             }
           },
           {
@@ -116,7 +128,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
             }
           },
           {
@@ -125,8 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "src/content/blog/add-map.md"
-              }
+                "file": "src/content/blog/jingdong1.md"
+              },
+              "icon": "lucide-list",
+              "title": "jingdong1 的大纲"
             }
           },
           {
@@ -134,7 +150,9 @@
             "type": "leaf",
             "state": {
               "type": "git-view",
-              "state": {}
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
@@ -142,8 +160,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -156,15 +173,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "64c44d541146c305",
+  "active": "7648010ce05ad554",
   "lastOpenFiles": [
+    "src/content/blog/nobel-1.md",
+    "src/content/blog/newblog.md",
+    "src/content/blog/jinan-guihuo.md",
+    "src/content/blog/jingdong1.md",
+    "src/content/blog/add-map.md",
+    "src/content/blog/mid-term.md",
     "src/content/blog/ai-summary.md",
     "src/content/blog/749-ju.md",
-    "src/content/blog/add-map.md",
-    "src/content/blog/nobel-1.md",
     "src/content/blog/steve-jobs-1.md",
-    "src/content/blog/jinan-guihuo.md",
-    "src/content/blog/newblog.md",
     "src/content/blog/yanjiusheng.md",
     "src/content/blog/msk-tlp.md",
     "src/content/blog/yunda-21student.md",
