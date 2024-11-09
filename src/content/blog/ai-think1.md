@@ -3,7 +3,7 @@ author: 可乐君
 pubDatetime: 2024-11-08T13:31:41.816Z
 title: 技术的“偏见”：生成式AI是信息革命，还是数字牢笼？
 slug: ai-think1
-featured: false
+featured: true
 ogImage: https://r2.xiaoayu.eu.org/2024/11/783c45626eeece8a8fbf336f5a71a061.webp
 tags:
   - 闲言碎语
