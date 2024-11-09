@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/jingdong1.md",
+                "file": "src/content/blog/ai-think1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "jingdong1"
+              "title": "ai-think1"
             }
           }
         ]
@@ -175,13 +175,14 @@
   },
   "active": "7648010ce05ad554",
   "lastOpenFiles": [
+    "src/content/blog/ai-summary.md",
+    "src/content/blog/ai-think1.md",
+    "src/content/blog/jingdong1.md",
     "src/content/blog/nobel-1.md",
     "src/content/blog/newblog.md",
     "src/content/blog/jinan-guihuo.md",
-    "src/content/blog/jingdong1.md",
     "src/content/blog/add-map.md",
     "src/content/blog/mid-term.md",
-    "src/content/blog/ai-summary.md",
     "src/content/blog/749-ju.md",
     "src/content/blog/steve-jobs-1.md",
     "src/content/blog/yanjiusheng.md",
