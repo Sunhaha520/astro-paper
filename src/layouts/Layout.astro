@@ -2,6 +2,7 @@
 import { LOCALE, SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
+import Coze from "@components/CozeSDK.astro";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -101,6 +102,7 @@ const structuredData = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 
+
     <!-- Google JSON-LD Structured data -->
     <script
       type="application/ld+json"
@@ -139,6 +141,7 @@ const structuredData = {
   </head>
   <body>
     <slot />
-  
+    <Coze />
+
   </body>
 </html>

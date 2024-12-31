@@ -564,3 +564,20 @@
 	}
 }
 /* db-card -------- end */
+
+
+.fa8097ff55eabaa5782b:not(.bc81871a44ea566dd738) {
+  width: 350px !important;
+	height: calc(100% - 310px) !important;
+	min-height: 400px;
+	max-height: 1200px;
+	bottom: 20px;
+	right: 20px;
+	border-radius: 8px;
+	box-shadow: 0 6px 8px 0 rgba(29, 28, 35, 0.06), 0 0 2px 0 rgba(29, 28, 35, 0.18);
+}
+
+
+body {
+	font-family: "LXGWWenKai" !important;
+}
