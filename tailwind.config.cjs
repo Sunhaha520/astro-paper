@@ -17,6 +17,9 @@ module.exports = {
     screens: {
       sm: "640px",
     },
+    maxWidth: {
+      '3xl': '58rem', // 覆盖默认值
+    },
 
     extend: {
       textColor: {
@@ -25,6 +28,9 @@ module.exports = {
           accent: withOpacity("--color-accent"),
           inverted: withOpacity("--color-fill"),
         },
+      },
+      fontSize: {
+        '9xl':'1.05rem',
       },
       backgroundColor: {
         skin: {
@@ -55,7 +61,7 @@ module.exports = {
         transparent: "transparent",
       },
       fontFamily: {
-        mono: ["IBM Plex Mono", "monospace"],
+        mono: ["LXGWWenKai", "IBM Plex Mono", "monospace"],
       },
 
       typography: {

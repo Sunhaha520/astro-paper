@@ -155,6 +155,20 @@
   }
 }
 
+
+@layer base {
+  p {
+    @apply text-9xl; /* 全局设置段落字体大小 */
+  }
+}
+
+@layer base {
+  a {
+    @apply text-9xl; /* 全局设置段落字体大小 */
+  }
+}
+
+
 .timeline-wrapper {
   @apply mb-14 flex flex-col justify-center;
 }
