@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/ai-summary.md",
+                "file": "src/content/blog/ai-blog.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ai-summary"
+              "title": "ai-blog"
             }
           }
         ]
@@ -176,6 +176,7 @@
   "active": "3f344fa8d5c62892",
   "lastOpenFiles": [
     "src/content/blog/add-map.md",
+    "src/content/blog/ai-blog.md",
     "src/content/blog/ai-summary.md",
     "src/content/blog/ai-think1.md",
     "src/content/blog/jingdong1.md",
