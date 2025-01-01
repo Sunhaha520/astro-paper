@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "9be11c257897a3da",
+        "id": "371843a23f506834",
         "type": "tabs",
         "children": [
           {
-            "id": "7648010ce05ad554",
+            "id": "3f344fa8d5c62892",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/ai-think1.md",
+                "file": "src/content/blog/add-map.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ai-think1"
+              "title": "add-map"
             }
           }
         ]
@@ -173,15 +173,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7648010ce05ad554",
+  "active": "3f344fa8d5c62892",
   "lastOpenFiles": [
     "src/content/blog/ai-summary.md",
+    "src/content/blog/add-map.md",
     "src/content/blog/ai-think1.md",
     "src/content/blog/jingdong1.md",
     "src/content/blog/nobel-1.md",
     "src/content/blog/newblog.md",
     "src/content/blog/jinan-guihuo.md",
-    "src/content/blog/add-map.md",
     "src/content/blog/mid-term.md",
     "src/content/blog/749-ju.md",
     "src/content/blog/steve-jobs-1.md",
