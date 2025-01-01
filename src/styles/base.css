@@ -580,3 +580,16 @@
 body {
 	font-family: "LXGWWenKai" !important;
 }
+
+
+a:where(.astro-blwjyjpt) svg:where(.astro-blwjyjpt) {
+	margin-right: -0.8rem !important;
+	height: 1.5rem;
+	width: 1.5rem;
+	--tw-scale-x: .95;
+	--tw-scale-y: .95;
+	transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+	--tw-text-opacity: 1;
+	color: rgba(var(--color-text-base),var(--tw-text-opacity));
+	opacity: 0.8;
+}
