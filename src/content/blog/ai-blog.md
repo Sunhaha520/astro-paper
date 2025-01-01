@@ -1,6 +1,6 @@
 ---
 author: 可乐君
-pubDatetime: 2024-12-31T13:31:41.816Z
+pubDatetime: 2024-12-30T02:31:41.816Z
 title: 为Astro博客添加AI博客助手
 slug: ai-blog
 featured: false
