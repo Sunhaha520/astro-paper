@@ -4,7 +4,6 @@ pubDatetime: 2024-12-30T02:31:41.816Z
 title: 为Astro博客添加AI博客助手
 slug: ai-blog
 featured: false
-ogImage: 
 tags:
   - 折腾日常
 description: 一直眼馋HEO大佬的AI助手，今天看字节的扣子每天100的免费额度加上支持知识库，就搞了一个，虽然功能上并不完美，但是效果还是有的。
