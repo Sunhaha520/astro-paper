@@ -567,8 +567,7 @@
 
 
 .fa8097ff55eabaa5782b:not(.bc81871a44ea566dd738) {
-  width: 350px !important;
-	height: calc(100% - 310px) !important;
+	height: calc(100% - 300px) !important;
 	min-height: 400px;
 	max-height: 1200px;
 	bottom: 20px;
