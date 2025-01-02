@@ -9,9 +9,16 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SITE, SOCIALS } from "@config";
+import fs from "fs";
+
+// 获取图片文件列表
+const photosDir = "./public/imgs";
+const photoFiles = fs.readdirSync(photosDir).filter(file => /\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)$/i.test(file));
+
+// 对图片文件进行排序
+photoFiles.sort((a, b) => b.localeCompare(a));
 
 const posts = await getCollection("blog");
-
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
@@ -42,20 +49,19 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        可乐君🫠，江苏人也，性嗜数码📱，兼好编程💻️、绘画及书法。其人喜评议，常抱不平，以伸正义为乐🫵。
-        今则投身研究，专攻点云方向👨‍🎓；创业亦初见端倪，诚邀有志之士共襄盛举，切磋交流👀。
+        可乐君🫠，江苏人也，性嗜数码📱，兼好编程💻️、绘画及书法。其人喜评议，常抱不平🫵。
+        今则投身研究，攻点云建筑重建方向👨‍🎓；创业亦初见端倪，诚邀有志之士共襄盛举，切磋交流👀。
       </p>
       <p>
          欢迎访问
         <LinkButton
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://edu.kelejun.cn"
+          href="https://lab.kelejun.cn"
         >
           可乐实验室
         </LinkButton> 以跟踪吾之研究进度✌️。
       </p>
       {
-        // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
             <div class="social-links">社交:</div>
@@ -66,6 +72,34 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     </section>
 
     <Hr />
+
+    {
+      photoFiles.length > 0 && (
+        <section id="recent-images">
+          <h2>最近光影</h2>
+          </br>
+          <div class="gallery-photos">
+            {photoFiles.slice(0, 6).map((file, index) => (
+              <div class="gallery-photo">
+                <img
+                  class="photo-img"
+                  data-index={index}
+                  loading="lazy"
+                  decoding="async"
+                  src={`/imgs/${file}`}
+
+                />
+                <span class="photo-title">{file.replace(/^[0-9 -]+(.*)[.].*/, "$1")}</span>
+                <span class="photo-time">{file.replace(/^([0-9-]+).*[.].*/, "$1")}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <Hr />
+
 
     {
       featuredPosts.length > 0 && (
@@ -122,6 +156,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Footer />
 </Layout>
 
+<!-- 样式 -->
 <style>
   /* ===== Hero Section ===== */
   #hero {
@@ -148,14 +183,78 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
   /* ===== Featured & Recent Posts Sections ===== */
   #featured,
-  #recent-posts {
+  #recent-posts,
+  #recent-images {
     @apply pb-6 pt-12;
   }
   #featured h2,
-  #recent-posts h2 {
+  #recent-posts h2,
+  #recent-images h2 {
     @apply text-2xl font-semibold tracking-wide;
   }
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
+  }
+
+  /* ===== Recent Images Section ===== */
+  .gallery-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* 图片之间的间距 */
+    justify-content: flex-start;
+  }
+
+  .gallery-photo {
+    position: relative;
+    overflow: hidden;
+    flex: 1 1 calc(16.666% - 8px); /* 电脑端一行 6 张 */
+    aspect-ratio: 1 / 1; /* 保持图片为正方形 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px; /* 圆角效果 */
+  }
+
+  .gallery-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 裁剪图片以填充容器 */
+    transition: transform 0.3s ease;
+    border-radius: 8px; /* 圆角效果 */
+  }
+
+  .gallery-photo:hover img {
+    transform: scale(1.1);
+  }
+
+  .gallery-photo span.photo-title,
+  .gallery-photo span.photo-time {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    color: #fff;
+    display: none;
+    position: absolute;
+  }
+
+  .gallery-photo span.photo-title {
+    bottom: 8px;
+    left: 8px;
+  }
+
+  .gallery-photo span.photo-time {
+    top: 8px;
+    left: 8px;
+  }
+
+  .gallery-photo:hover span.photo-title {
+    display: block;
+  }
+
+  /* 手机端样式 */
+  @media screen and (max-width: 768px) {
+    .gallery-photo {
+      flex: 1 1 calc(33.333% - 8px); /* 手机端一行 3 张 */
+    }
   }
 </style>
