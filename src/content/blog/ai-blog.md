@@ -88,7 +88,7 @@ import Coze from "@components/CozeSDK.astro";
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <center>
 <model-viewer
-    src="/public/3d/sample.glb"
+    src="/3d/sample.glb"
     alt="A 3D model"
     ar
     auto-rotate
