@@ -2,7 +2,7 @@
 author: 可乐君
 pubDatetime: 2025-01-04T13:31:41.816Z
 title: 特别的生日礼物：抖音出圈机器狗
-slug: ai-summary
+slug: bot-dog
 featured: false
 ogImage: https://r2.xiaoayu.eu.org/2025/01/461629ed847a07ae8e5fd676c22c26cb.webp
 tags:
