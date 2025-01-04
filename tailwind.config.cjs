@@ -18,7 +18,7 @@ module.exports = {
       sm: "640px",
     },
     maxWidth: {
-      '3xl': '58rem', // 覆盖默认值
+      '3xl': '55rem', // 覆盖默认值
     },
 
     extend: {
