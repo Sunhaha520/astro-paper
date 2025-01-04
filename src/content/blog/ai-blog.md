@@ -84,15 +84,3 @@ import Coze from "@components/CozeSDK.astro";
 大功告成！！
 ## 总结
 我的机器人叫博客专家，它可以介绍我的情况，帮你理解文章，向你推荐文章，虽然有些不太聪明，但是作为摆设的用处似乎更大些~
-
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-<center>
-<model-viewer
-    src="/3d/sample.glb"
-    alt="A 3D model"
-    ar
-    auto-rotate
-    camera-controls
-    style="width: 50%; height: 200px;">
-</model-viewer>
-</center>
