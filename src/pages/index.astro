@@ -76,7 +76,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     {
       photoFiles.length > 0 && (
         <section id="recent-images">
-          <h2>最近光影</h2>
+        <h2><a href="/photos" class="hover:text-skin-accent">最近光影</a></h2>
           </br>
           <div class="gallery-photos">
             {photoFiles.slice(0, 6).map((file, index) => (

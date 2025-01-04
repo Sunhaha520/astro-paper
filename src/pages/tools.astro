@@ -1,0 +1,165 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+interface ToolType {
+  title: string;
+  image: string;
+  info: string;
+  link: string;
+  macos?: string;
+  free?: string;
+}
+
+const tools: ToolType[] = [
+  {
+    title: "Visual Studio Code",
+    image: "https://img.koobai.com/app/vscode.webp",
+    info: "代码编辑器，强大的跨平台代码编辑器",
+    link: "https://code.visualstudio.com",
+    macos: "Windows",
+    free: "免费"
+  },
+  {
+    title: "Obsidian",
+    image: "https://img.koobai.com/app/obsidiannew.webp",
+    info: "知识管理笔记类软件，插件丰富，日常记录、写博客使用。",
+    link: "https://code.visualstudio.com",
+    macos: "Windows",
+    free: "免费"
+  },
+  {
+    title: "Telegram",
+    image: "https://img.koobai.com/app/telegram.webp",
+    info: "关注你想关注的，你能想到的资源都有。",
+    link: "https://code.visualstudio.com",
+    macos: "Windows",
+    free: "免费"
+  }
+];
+---
+
+<Layout title={`效率工具箱 | ${SITE.title}`}>
+  <Header activeNav="tools" />
+  <Main pageTitle="效率工具箱🔧" pageDesc="让工作事半功倍。">
+    <div class="tools-grid">
+      {tools.map(tool => (
+        <div class="tool-card">
+          <div class="tool-img">
+            <a href={tool.link} target="_blank">
+              <img src={tool.image} alt={tool.title} loading="lazy" />
+            </a>
+          </div>
+          
+          <div class="tool-content">
+            <div class="content-default">
+              <h3 class="tool-title">
+                <a href={tool.link} target="_blank">{tool.title}</a>
+              </h3>
+              {tool.macos && <span class="tag">{tool.macos}</span>}
+            </div>
+            <div class="content-hover">{tool.info}</div>
+          </div>
+
+          {tool.free && (
+            <div class="tool-free">
+              <span class="tag-free">{tool.free}</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </Main>
+  <Footer />
+</Layout>
+
+<style>
+.tools-grid {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.tool-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 0.75rem; /* 统一圆角大小 */
+  align-items: center;
+  border: 1px solid var(--timeline-border); /* 使用正确的边框颜色变量 */
+  transition: all 0.3s ease; /* 统一过渡效果 */
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 添加悬浮阴影 */
+}
+
+.tool-img img {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius);
+}
+
+.tool-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-default,
+.content-hover {
+  transition: opacity 0.3s ease;
+}
+
+.content-hover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.tool-card:hover .content-default {
+  opacity: 0;
+}
+
+.tool-card:hover .content-hover {
+  opacity: 1;
+}
+
+.tool-title {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600; /* 或者使用 font-bold (700) */
+}
+
+.tag {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.tool-free {
+  align-self: center;
+}
+
+.tag-free {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  background: #11a173;
+  color: white;
+}
+</style>
