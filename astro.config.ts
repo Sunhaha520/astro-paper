@@ -28,7 +28,7 @@ export default defineConfig({
     ],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
-      themes: { light: "min-light", dark: "ayu-dark" },
+      themes: { light: "rose-pine-dawn", dark: "ayu-dark" },
       wrap: true,
     },
   },
