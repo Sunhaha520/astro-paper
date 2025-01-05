@@ -39,37 +39,22 @@ aiSummary: 本文介绍了如何利用字节跳动的“扣子”平台创建并
       if (window.CozeWebSDK) {
         new CozeWebSDK.WebChatClient({
           config: {
-
             bot_id: '745*****4704147',//你创建的机器人id
-
           },
 //........配置部分略，看官方文档
           componentProps: {
-
             title: '博客专家',
-
           },
-
         },
-
         });
-
       } else {
-
         console.error('CozeWebSDK 脚本加载后仍不可用。');
-
       }
-
     };
-
     // 监听页面切换事件
-
     document.addEventListener('astro:page-load', initializeCoze);
-
     // 监听页面内容交换事件
-
     document.addEventListener('astro:after-swap', initializeCoze);
-
   </script>
 ```
 ### 引用组件
