@@ -231,7 +231,7 @@
 .timeline-content .body {
   margin-top: 10px;
   margin-bottom: 20px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -565,7 +565,7 @@
 
 
 body {
-	font-family: "LXGW Neo ZhiSong" !important;
+	font-family: "monospace", "NanoFullSong" !important;
 }
 
 
@@ -608,3 +608,10 @@ a:where(.astro-blwjyjpt) svg:where(.astro-blwjyjpt) {
 .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *))::-webkit-scrollbar {
 	display: none; /* 隐藏滚动条 */
 }
+
+
+/* 或者使用更简单的方式：直接调整根元素字体大小 */
+html {
+  font-size: 109%; /* 默认是 16px, 这里设置为原来的 1.2 倍 */
+}
+
