@@ -11,7 +11,7 @@ interface ToolType {
   info: string;
   link: string;
   macos?: string;
-  free?: string;
+  free?: "免费" | "付费" | "开源"; // 明确 free 的类型
 }
 
 const tools: ToolType[] = [
@@ -21,7 +21,7 @@ const tools: ToolType[] = [
     info: "代码编辑器，强大的跨平台代码编辑器",
     link: "https://code.visualstudio.com",
     macos: "Windows",
-    free: "免费"
+    free: "开源" // 示例
   },
   {
     title: "Obsidian",
@@ -29,7 +29,7 @@ const tools: ToolType[] = [
     info: "知识管理笔记类软件，插件丰富，日常记录、写博客使用。",
     link: "https://obsidian.md/",
     macos: "Windows",
-    free: "免费"
+    free: "免费" // 示例
   },
   {
     title: "Telegram",
@@ -37,7 +37,7 @@ const tools: ToolType[] = [
     info: "关注你想关注的，你能想到的资源都有。",
     link: "https://telegram.org/",
     macos: "Windows",
-    free: "免费"
+    free: "免费" // 示例
   },
   {
     title: "ChatGPT",
@@ -45,7 +45,7 @@ const tools: ToolType[] = [
     info: "最强AI，科研生活学习以及代码利器。",
     link: "https://chatgpt.com/",
     macos: "Web",
-    free: "付费"
+    free: "付费" // 示例
   }
 ];
 ---
@@ -74,7 +74,7 @@ const tools: ToolType[] = [
 
           {tool.free && (
             <div class="tool-free">
-              <span class="tag-free">{tool.free}</span>
+              <span class={`tag-free tag-free-${tool.free}`}>{tool.free}</span>
             </div>
           )}
         </div>
@@ -103,15 +103,15 @@ const tools: ToolType[] = [
   gap: 1rem;
   padding: 1rem;
   background: var(--card-bg);
-  border-radius: 0.75rem; /* 统一圆角大小 */
+  border-radius: 0.75rem;
   align-items: center;
-  border: 1px solid var(--timeline-border); /* 使用正确的边框颜色变量 */
-  transition: all 0.3s ease; /* 统一过渡效果 */
+  border: 1px solid var(--timeline-border);
+  transition: all 0.3s ease;
 }
 
 .tool-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 添加悬浮阴影 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .tool-img img {
@@ -151,7 +151,7 @@ const tools: ToolType[] = [
 .tool-title {
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
-  font-weight: 600; /* 或者使用 font-bold (700) */
+  font-weight: 600;
 }
 
 .tag {
@@ -167,7 +167,21 @@ const tools: ToolType[] = [
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
   border-radius: 1rem;
-  background: #11a173;
   color: white;
+}
+
+/* 免费标签样式 */
+.tag-free-免费 {
+  background: #11a173; /* 绿色 */
+}
+
+/* 付费标签样式 */
+.tag-free-付费 {
+  background: #d9534f; /* 红色 */
+}
+
+/* 开源标签样式 */
+.tag-free-开源 {
+  background: #5bc0de; /* 蓝色 */
 }
 </style>
