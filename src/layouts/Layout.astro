@@ -2,7 +2,7 @@
 import { LOCALE, SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
-import Coze from "@components/CozeSDK.astro";
+// import Coze from "@components/CozeSDK.astro";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -142,7 +142,7 @@ const structuredData = {
   </head>
   <body>
     <slot />
-    <Coze />
+    <!-- <Coze /> -->
 
   </body>
 </html>
