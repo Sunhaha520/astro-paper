@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "关于🧑‍💻"
 ---
 
-你好👋我是可乐君，目前澳门大学读研，想成为一名算法工程师或产品经历。
+你好👋我是可乐君，目前澳门大学读研，想成为一名算法工程师或产品经理。
 
 ## 我的足迹
 <center><iframe scrolling=no style="min-height:300px !important;" src="/maps.html" width="100%"></iframe></center>
